@@ -13,12 +13,9 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define Base        0
-#define Nav         1
-#define Sym         2
-#define Fun         3
-#define Game        4
-#define Gameplus    5
+#define DEFAULT     0
+#define NUM         1
+#define FUNC        2
 
 &mt {
     quick-tap-ms = <100>;
@@ -47,32 +44,42 @@
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    combos {
+        compatible = "zmk,combos";
+
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <10 11 12 13>;
+            bindings = <&kp ESC>;
+        };
+
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
-        layer_0 {
-            display-name = "layer0";
+        default {
+            display-name = "Default";
             bindings = <
                   &kp Q       &kp W        &kp F         &kp P       &kp B         &kp J        &kp L          &kp U         &kp Y        &kp SEMICOLON
                   &hm LALT A  &hm LCTRL R  &hm LSHIFT S  &hm LGUI T  &hm RALT G    &hm RALT M   &hm LGUI N     &hm LSHIFT E  &hm LCTRL I  &hm LALT O
 &kp LEFT_BRACKET  &kp Z       &kp X        &kp C         &kp D       &kp V         &kp K        &kp H          &kp COMMA     &kp DOT      &kp SLASH      &kp RIGHT_BRACKET
-                                           &lt 1 ESC     &kp SPACE   &lt 1 TAB     &lt 1 ENTER  &kp BACKSPACE  &lt 1 DEL
+                                           &lt NUM ESC     &kp SPACE   &lt FUNC TAB     &lt NUM ENTER  &kp BACKSPACE  &lt FUNC DEL
             >;
         };
 
-        layer_1 {
-            display-name = "layer1";
+        num {
+            display-name = "Number";
             bindings = <
                       &trans             &trans              &kp TILDE            &kp DOUBLE_QUOTES  &trans               &kp DOWN           &kp RIGHT          &kp UNDERSCORE       &kp PLUS            &kp PIPE
                       &hm LALT NUMBER_1  &hm LCTRL NUMBER_2  &hm LSHIFT NUMBER_3  &hm LGUI NUMBER_4  &hm RALT NUMBER_5    &hm RALT NUMBER_6  &hm LGUI NUMBER_7  &hm LSHIFT NUMBER_8  &hm LCTRL NUMBER_9  &hm LALT NUMBER_0
 &kp LEFT_PARENTHESIS  &trans             &trans              &kp GRAVE            &kp APOSTROPHE     &trans               &kp UP             &kp LEFT           &kp MINUS            &kp EQUAL           &kp BACKSLASH      &kp RIGHT_PARENTHESIS
-                                                             &lt 2 ESC            &trans             &trans               &trans             &trans             &lt 2 DEL
+                                                             &lt FUNC ESC            &trans             &trans               &trans             &trans             &lt FUNC DEL
             >;
         };
 
-        layer_2 {
+        func {
+            display-name = "Function";
             bindings = <
          &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
          &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
