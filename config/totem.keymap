@@ -22,7 +22,7 @@
 
 &lt {
     tapping-term-ms = <240>;
-    flavor = "tap-unless-interrupted";
+    flavor = "balanced";
     quick-tap-ms = <150>;
 };
 
@@ -31,16 +31,6 @@
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
-        };
-        hm2: homerow_mods2 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS 2";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
@@ -77,7 +67,7 @@
             display-name = "Number";
             bindings = <
                       &trans             &trans              &kp TILDE            &kp DOUBLE_QUOTES  &trans               &kp DOWN           &kp RIGHT          &kp UNDERSCORE       &kp PLUS            &kp PIPE
-                      &hm2 LALT NUMBER_1 &hm2 LCTRL NUMBER_2 &hm2 LSHIFT NUMBER_3 &hm2 LGUI NUMBER_4 &hm2 RALT NUMBER_5   &hm2 RALT NUMBER_6 &hm2 LGUI NUMBER_7 &hm2 LSHIFT NUMBER_8 &hm2 LCTRL NUMBER_9 &hm2 LALT NUMBER_0
+                      &hm LALT NUMBER_1 &hm LCTRL NUMBER_2 &hm LSHIFT NUMBER_3 &hm LGUI NUMBER_4 &hm RALT NUMBER_5   &hm RALT NUMBER_6 &hm LGUI NUMBER_7 &hm LSHIFT NUMBER_8 &hm LCTRL NUMBER_9 &hm LALT NUMBER_0
 &kp LEFT_PARENTHESIS  &trans             &trans              &kp GRAVE            &kp APOSTROPHE     &trans               &kp UP             &kp LEFT           &kp MINUS            &kp EQUAL           &kp BACKSLASH      &kp RIGHT_PARENTHESIS
                                                              &lt 2 ESC            &trans             &trans               &trans             &trans             &lt 2 DEL
             >;
