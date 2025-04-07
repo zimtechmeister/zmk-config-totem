@@ -11,7 +11,9 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 &mt {
     quick-tap-ms = <100>;
@@ -40,15 +42,7 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <10 11 12 13>;
-            bindings = <&kp ESC>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
@@ -67,7 +61,7 @@
             display-name = "Number";
             bindings = <
                       &trans             &trans              &kp TILDE            &kp DOUBLE_QUOTES  &trans               &kp DOWN           &kp RIGHT          &kp UNDERSCORE       &kp PLUS            &kp PIPE
-                      &hm LALT NUMBER_1 &hm LCTRL NUMBER_2 &hm LSHIFT NUMBER_3 &hm LGUI NUMBER_4 &hm RALT NUMBER_5   &hm RALT NUMBER_6 &hm LGUI NUMBER_7 &hm LSHIFT NUMBER_8 &hm LCTRL NUMBER_9 &hm LALT NUMBER_0
+                      &hm LALT NUMBER_1  &hm LCTRL NUMBER_2  &hm LSHIFT NUMBER_3  &hm LGUI NUMBER_4  &hm RALT NUMBER_5    &hm RALT NUMBER_6  &hm LGUI NUMBER_7  &hm LSHIFT NUMBER_8  &hm LCTRL NUMBER_9  &hm LALT NUMBER_0
 &kp LEFT_PARENTHESIS  &trans             &trans              &kp GRAVE            &kp APOSTROPHE     &trans               &kp UP             &kp LEFT           &kp MINUS            &kp EQUAL           &kp BACKSLASH      &kp RIGHT_PARENTHESIS
                                                              &lt 2 ESC            &trans             &trans               &trans             &trans             &lt 2 DEL
             >;
@@ -76,10 +70,10 @@
         func {
             display-name = "Function";
             bindings = <
-         &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-         &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-&kp F11  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans   &kp F12
-                         &trans  &trans  &trans    &trans  &trans  &trans
+         &out OUT_BLE  &out OUT_USB  &bt BT_CLR_ALL  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+         &kp F1        &kp F2        &kp F3          &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
+&kp F11  &trans        &trans        &trans          &trans  &trans    &trans  &trans  &trans  &trans  &trans   &kp F12
+                                     &trans          &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
