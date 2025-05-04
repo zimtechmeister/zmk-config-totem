@@ -1,7 +1,7 @@
 # TODO:
 - [ ] In vim when "d ^G" it will type "de" because there needs to be some delay before hold behavior can trigger
 - [ ] Add some option to hold down the tap key from homerow-mod like in qmk i could tap and hold the key and it would send hold down the tap key
-
+- [ ] you should copy from this [repo](https://github.com/urob/zmk-config)
 ---
 
 <picture>
