@@ -15,19 +15,32 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
-&lt {
-    flavor = "balanced";
-};
+&lt { flavor = "balanced"; };
 
 / {
     behaviors {
-        hm: home_row_mod {
+        hmr: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <20 0 10 21 0 1 2 3 4 10 11 12 13 14 22 23 24 25>;
+            hold-trigger-on-release;
+        };
+
+        hml: home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 26 27 28 29 31 30>;
+            hold-trigger-on-release;
         };
     };
 
@@ -37,20 +50,20 @@
         default {
             display-name = "Default";
             bindings = <
-                  &kp Q       &kp W        &kp F         &kp P       &kp B         &kp J        &kp L          &kp U         &kp Y        &kp SEMICOLON
-                  &hm LALT A  &hm LCTRL R  &hm LSHIFT S  &hm LGUI T  &hm RALT G    &hm RALT M   &hm LGUI N     &hm LSHIFT E  &hm LCTRL I  &hm LALT O
-&kp LEFT_BRACKET  &kp Z       &kp X        &kp C         &kp D       &kp V         &kp K        &kp H          &kp COMMA     &kp DOT      &kp SLASH      &kp RIGHT_BRACKET
-                                           &lt 1 ESC     &kp SPACE   &lt 2 TAB     &lt 2 ENTER  &kp BACKSPACE  &lt 1 DEL
+                  &kp Q        &kp W         &kp F          &kp P        &kp B          &kp J        &kp L          &kp U          &kp Y         &kp SEMICOLON
+                  &hml LALT A  &hml LCTRL R  &hml LSHIFT S  &hml LGUI T  &hml RALT G    &hmr RALT M  &hmr LGUI N    &hmr LSHIFT E  &hmr LCTRL I  &hmr LALT O
+&kp LEFT_BRACKET  &kp Z        &kp X         &kp C          &kp D        &kp V          &kp K        &kp H          &kp COMMA      &kp DOT       &kp SLASH      &kp RIGHT_BRACKET
+                                             &lt 1 ESC      &kp SPACE    &lt 2 TAB      &lt 2 ENTER  &kp BACKSPACE  &lt 1 DEL
             >;
         };
 
         num {
             display-name = "Number";
             bindings = <
-                      &trans             &trans              &kp TILDE            &kp DOUBLE_QUOTES  &trans               &kp DOWN           &kp RIGHT          &kp UNDERSCORE       &kp PLUS            &kp PIPE
-                      &hm LALT NUMBER_1  &hm LCTRL NUMBER_2  &hm LSHIFT NUMBER_3  &hm LGUI NUMBER_4  &hm RALT NUMBER_5    &hm RALT NUMBER_6  &hm LGUI NUMBER_7  &hm LSHIFT NUMBER_8  &hm LCTRL NUMBER_9  &hm LALT NUMBER_0
-&kp LEFT_PARENTHESIS  &trans             &trans              &kp GRAVE            &kp APOSTROPHE     &trans               &kp UP             &kp LEFT           &kp MINUS            &kp EQUAL           &kp BACKSLASH      &kp RIGHT_PARENTHESIS
-                                                             &lt 2 ESC            &trans             &trans               &trans             &trans             &lt 2 DEL
+                      &trans              &trans               &kp TILDE             &kp DOUBLE_QUOTES   &trans                &kp DOWN            &kp RIGHT           &kp UNDERSCORE        &kp PLUS             &kp PIPE
+                      &hml LALT NUMBER_1  &hml LCTRL NUMBER_2  &hml LSHIFT NUMBER_3  &hml LGUI NUMBER_4  &hml RALT NUMBER_5    &hmr RALT NUMBER_6  &hmr LGUI NUMBER_7  &hmr LSHIFT NUMBER_8  &hmr LCTRL NUMBER_9  &hmr LALT NUMBER_0
+&kp LEFT_PARENTHESIS  &trans              &trans               &kp GRAVE             &kp APOSTROPHE      &trans                &kp UP              &kp LEFT            &kp MINUS             &kp EQUAL            &kp BACKSLASH       &kp RIGHT_PARENTHESIS
+                                                               &lt 2 ESC             &trans              &trans                &trans              &trans              &lt 2 DEL
             >;
         };
 
