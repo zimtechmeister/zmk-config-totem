@@ -21,8 +21,11 @@
 
 &lt {
     flavor = "balanced";
-    tapping-term-ms = <200>;
+    tapping-term-ms = <300>;
     quick-tap-ms = <175>;
+    require-prior-idle-ms = <80>;
+    hold-trigger-key-positions = <KEYS_L KEYS_R>;
+    hold-trigger-on-release;
 };
 
 / {
