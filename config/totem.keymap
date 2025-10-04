@@ -38,6 +38,7 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <80>;
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
         };
@@ -50,6 +51,7 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <80>;
             bindings = <&kp>, <&kp>;
+
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
         };
@@ -61,10 +63,10 @@
         default {
             display-name = "Default";
             bindings = <
-                  &kp Q        &kp W         &kp F          &kp P        &kp B          &kp J        &kp L          &kp U          &kp Y         &kp SEMICOLON
-                  &hml LALT A  &hml LCTRL R  &hml LSHIFT S  &hml LGUI T  &hml RALT G    &hmr RALT M  &hmr LGUI N    &hmr LSHIFT E  &hmr LCTRL I  &hmr LALT O
-&kp LEFT_BRACKET  &kp Z        &kp X         &kp C          &kp D        &kp V          &kp K        &kp H          &kp COMMA      &kp DOT       &kp SLASH      &kp RIGHT_BRACKET
-                                             &lt 1 ESC      &kp SPACE    &lt 2 TAB      &lt 2 ENTER  &kp BACKSPACE  &lt 1 DEL
+                  &kp Q        &kp W         &kp F          &kp P        &kp B          &kp J        &kp L            &kp U          &kp Y         &kp SEMICOLON
+                  &hml LALT A  &hml LCTRL R  &hml LSHIFT S  &hml LGUI T  &hml RALT G    &hmr RALT M  &hmr LGUI N      &hmr LSHIFT E  &hmr LCTRL I  &hmr LALT O
+&kp LEFT_BRACKET  &kp Z        &kp X         &kp C          &kp D        &kp V          &kp K        &kp H            &kp COMMA      &kp DOT       &kp SLASH      &kp RIGHT_BRACKET
+                                             &lt 3 ESC      &lt 1 SPACE  &lt 2 TAB      &lt 2 ENTER  &lt 1 BACKSPACE  &lt 3 DEL
             >;
         };
 
