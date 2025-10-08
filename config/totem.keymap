@@ -1,0 +1,105 @@
+//
+//                                                        ▀▀▀▀▀     ▀▀▀▀▀          ▀▀█▀▀
+//                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
+//                                                        █   █  █  █   █  █  █   █  █  █   █
+//                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
+//                                                               █      ▄▄▄█▄▄▄    █   █
+//                                                               ▀      █  █  █     █▄█
+//                                                             ▀▀▀▀▀    █  █  █      ▀
+//                                                                      ▀  ▀  ▀
+//
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+/* #include <behaviors/rgbled_widget.dtsi> */
+
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 25
+#define KEYS_R 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31
+#define THUMBS 32 33 34 35 36 37
+
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <300>;
+    quick-tap-ms = <175>;
+    require-prior-idle-ms = <80>;
+    hold-trigger-key-positions = <KEYS_L KEYS_R>;
+    hold-trigger-on-release;
+};
+
+/ {
+    behaviors {
+        hml: homerow_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <300>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <80>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        hmr: homerow_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <300>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <80>;
+            bindings = <&kp>, <&kp>;
+
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default {
+            display-name = "Default";
+            bindings = <
+                  &kp Q        &kp W         &kp F          &kp P        &kp B          &kp J        &kp L            &kp U          &kp Y         &kp SEMICOLON
+                  &hml LALT A  &hml LCTRL R  &hml LSHIFT S  &hml LGUI T  &hml RALT G    &hmr RALT M  &hmr LGUI N      &hmr LSHIFT E  &hmr LCTRL I  &hmr LALT O
+&kp LEFT_BRACKET  &kp Z        &kp X         &kp C          &kp D        &kp V          &kp K        &kp H            &kp COMMA      &kp DOT       &kp SLASH      &kp RIGHT_BRACKET
+                                             &lt 3 ESC      &lt 1 SPACE  &lt 2 TAB      &lt 2 ENTER  &lt 1 BACKSPACE  &lt 3 DEL
+            >;
+        };
+
+        num {
+            display-name = "Number";
+            bindings = <
+                      &trans              &trans               &kp TILDE             &kp DOUBLE_QUOTES   &trans                &kp DOWN            &kp RIGHT           &kp UNDERSCORE        &kp PLUS             &kp PIPE
+                      &hml LALT NUMBER_1  &hml LCTRL NUMBER_2  &hml LSHIFT NUMBER_3  &hml LGUI NUMBER_4  &hml RALT NUMBER_5    &hmr RALT NUMBER_6  &hmr LGUI NUMBER_7  &hmr LSHIFT NUMBER_8  &hmr LCTRL NUMBER_9  &hmr LALT NUMBER_0
+&kp LEFT_PARENTHESIS  &trans              &trans               &kp GRAVE             &kp APOSTROPHE      &trans                &kp UP              &kp LEFT            &kp MINUS             &kp EQUAL            &kp BACKSLASH       &kp RIGHT_PARENTHESIS
+                                                               &trans                &trans              &trans                &trans              &trans              &trans
+            >;
+        };
+
+        func {
+            display-name = "Function";
+            bindings = <
+         &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+         &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
+&kp F11  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &kp F12
+                         &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        ctrl {
+            display-name = "BluetoothCTRL";
+            bindings = <
+        &bt BT_CLR    &trans        &out OUT_BLE  &out OUT_USB  &trans          &trans  &trans    &trans    &trans  &trans
+        /* &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &ind_bat  &ind_con  &trans  &trans */
+        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans    &trans    &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans          &trans  &trans    &trans    &trans  &trans  &trans
+                                    &trans        &trans        &trans          &trans  &trans    &trans
+            >;
+        };
+    };
+};
