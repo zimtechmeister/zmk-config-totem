@@ -64,20 +64,20 @@
         default {
             display-name = "Default";
             bindings = <
-           &kp Q        &kp W         &kp E          &kp R        &kp T          &kp Y        &kp U            &kp I          &kp O         &kp P
-           &hml LALT A  &hml LCTRL S  &hml LSHIFT D  &hml LGUI F  &hml RALT G    &hmr RALT H  &hmr LGUI J      &hmr LSHIFT K  &hmr LCTRL L  &hmr LALT SEMICOLON
-&kp GRAVE  &kp Z        &kp X         &kp C          &kp V        &kp B          &kp N        &kp M            &kp COMMA      &kp DOT       &kp SLASH            &kp APOSTROPHE
-                                      &lt 3 ESC      &lt 1 SPACE  &lt 2 TAB      &lt 2 ENTER  &lt 1 BACKSPACE  &lt 3 DEL
+           &kp Q        &kp W                &kp E              &kp R            &kp T               &kp Y             &kp U            &kp I              &kp O                &kp P
+           &hml LALT A  &hml LEFT_CONTROL S  &hml LEFT_SHIFT D  &hml LEFT_GUI F  &hml RIGHT_ALT G    &hmr RIGHT_ALT H  &hmr LEFT_GUI J  &hmr LEFT_SHIFT K  &hmr LEFT_CONTROL L  &hmr LEFT_ALT SEMICOLON
+&kp GRAVE  &kp Z        &kp X                &kp C              &kp V            &kp B               &kp N             &kp M            &kp COMMA          &kp DOT              &kp SLASH                &kp APOSTROPHE
+                                             &lt 3 ESC          &lt 1 SPACE      &lt 2 TAB           &lt 2 ENTER       &lt 1 BACKSPACE  &lt 3 DEL
             >;
         };
 
         num {
             display-name = "Number";
             bindings = <
-        &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0    &trans          &kp MINUS       &kp EQUAL     &kp LEFT_BRACKET  &kp RIGHT_BRACKET
-        &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW   &kp APOSTROPHE
-&trans  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans          &trans          &trans          &trans        &trans            &kp BACKSLASH      &trans
-                              &trans        &trans        &trans          &trans          &trans          &trans
+        &trans  &kp NUMBER_7                &kp NUMBER_8              &kp NUMBER_9            &kp NUMBER_0    &trans                     &kp MINUS                 &kp EQUAL                 &kp LEFT_BRACKET               &kp RIGHT_BRACKET
+        &trans  &hml LEFT_CONTROL NUMBER_4  &hml LEFT_SHIFT NUMBER_5  &hml LEFT_GUI NUMBER_6  &trans          &hmr RIGHT_ALT LEFT_ARROW  &hmr LEFT_GUI DOWN_ARROW  &hmr LEFT_SHIFT UP_ARROW  &hmr LEFT_CONTROL RIGHT_ARROW  &trans
+&trans  &trans  &kp NUMBER_1                &kp NUMBER_2              &kp NUMBER_3            &trans          &trans                     &trans                    &trans                    &trans                         &kp BACKSLASH      &trans
+                                            &trans                    &trans                  &trans          &trans                     &trans                    &trans
             >;
         };
 
@@ -94,10 +94,10 @@
         ctrl {
             display-name = "BluetoothCTRL";
             bindings = <
-            &trans  &trans        &out OUT_TOG  &trans        &trans    &trans    &trans    &trans  &trans  &trans
-            &trans  &bt BT_SEL 3  &bt BT_SEL 4  &ind_bat      &ind_con  &ind_con  &ind_bat  &trans  &trans  &trans
-&bt BT_CLR  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans    &trans    &trans    &trans  &trans  &trans  &trans
-                                  &trans        &trans        &trans    &trans    &trans    &trans
+            &trans  &trans        &out OUT_TOG  &trans        &trans      &trans    &trans    &trans  &trans  &trans
+            &trans  &bt BT_SEL 3  &bt BT_SEL 4  &ind_bat      &ind_con    &ind_con  &ind_bat  &trans  &trans  &trans
+&bt BT_CLR  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans      &trans    &trans    &trans  &trans  &trans  &trans
+                                  &trans        &trans        &trans      &trans    &trans    &trans
             >;
         };
     };
